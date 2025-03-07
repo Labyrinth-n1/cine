@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';  // Styles de base pour le cercle
-
+import { Link } from 'react-router-dom';
 import '../css/Home.scss';
 
 const AdminDashboard = () => {
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     try {
       console.log("📤 Envoi de la requête :", requestBody);
 
-      const response = await fetch('http://localhost:3000/api/v1/predict', {
+      const response = await fetch('https://cine-dhd3.vercel.app/api/v1/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: requestBody,
@@ -73,8 +73,8 @@ const AdminDashboard = () => {
           <h2>AVIS<strong style={{ color: '#aa0f0f' }}>CINE</strong></h2>
         </div>
         <ul style={{ fontFamily: 'Montserrat' }} className="Home-Nav-Links">
-          <li className="Home-Nav-Links-li"><a href="/">Dashboard</a></li>
-          <li className="Home-Nav-Links-li"><a href="/admin/dashboard">Test-API</a></li>
+          <li className="Home-Nav-Links-li"><Link to="/">Dashboard</Link></li>
+          <li className="Home-Nav-Links-li"><Link to="/admin/dashboard">Test-API</Link></li>
         </ul>
       </div>
 

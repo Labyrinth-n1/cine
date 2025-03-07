@@ -23,7 +23,7 @@ function Home()
 
             
             <ul className="Home-Nav-Links">
-                <li className="Home-Nav-Links-li"><a href="/">Home</a></li>
+                <li className="Home-Nav-Links-li"><Link to="/">Home</Link></li>
                 
                 <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
                 <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>

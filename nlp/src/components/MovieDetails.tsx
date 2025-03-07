@@ -23,7 +23,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/movies/${id}`);
+        const res = await axios.get(`https://cine-dhd3.vercel.app/api/movies/${id}`);
         setMovie(res.data);
         setLoading(false);
       } catch (err) {

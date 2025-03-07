@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch('https://cine-dhd3.vercel.app/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,20 +51,20 @@ const Login = () => {
 
       <div className="Home-Nav">
 
-            <div className="Home-Nav-Logo">
-                <h2>AVIS<strong style={{color:'#aa0f0f'}}>CINE</strong></h2>
-            </div>
+<div className="Home-Nav-Logo">
+    <h2>AVIS<strong style={{color:'#aa0f0f'}}>CINE</strong></h2>
+</div>
 
-            
-            <ul className="Home-Nav-Links">
-                <li className="Home-Nav-Links-li"><a href="/">Home</a></li>
-                
-                <li className="Home-Nav-Links-li"><a href="/reviews">Films</a></li>
-                <li className="Home-Nav-Links-li"><a href="/signup">Inscription</a></li>
-                <li className="Home-Nav-Links-li"><a href="/login">Connexion</a></li>
-            </ul> 
-            
-          </div>
+
+<ul className="Home-Nav-Links">
+    <li className="Home-Nav-Links-li"><Link to="/">Home</Link></li>
+    
+    <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
+    <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>
+    <li className="Home-Nav-Links-li"><Link to="/login">Connexion</Link></li>
+</ul> 
+
+</div>
 
       <form onSubmit={handleSubmit}>
         <div>

@@ -23,7 +23,7 @@ const SignUp = () => {
     if (code) userData.code = code; // Ajouter le code uniquement s'il est rempli
 
     try {
-        const response = await fetch('http://localhost:3000/api/register', {
+        const response = await fetch('https://cine-dhd3.vercel.app/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),
@@ -57,11 +57,11 @@ const SignUp = () => {
 
             
             <ul className="Home-Nav-Links">
-                <li className="Home-Nav-Links-li"><a href="/">Home</a></li>
+                <li className="Home-Nav-Links-li"><Link to="/">Home</Link></li>
                 
-                <li className="Home-Nav-Links-li"><a href="/reviews">Films</a></li>
-                <li className="Home-Nav-Links-li"><a href="/signup">Inscription</a></li>
-                <li className="Home-Nav-Links-li"><a href="/login">Connexion</a></li>
+                <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
+                <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>
+                <li className="Home-Nav-Links-li"><Link to="/login">Connexion</Link></li>
             </ul> 
             
           </div>

@@ -10,7 +10,7 @@ const PredictForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/v1/predict', {
+      const response = await fetch('https://cine-dhd3.vercel.app/api/v1/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

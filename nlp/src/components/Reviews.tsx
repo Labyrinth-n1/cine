@@ -40,7 +40,7 @@ function Reviews() {
 
     const fetchMovies = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/movies');
+        const res = await axios.get('https://cine-dhd3.vercel.app/api/movies');
         setMovies(res.data);
         setLoading(false);
       } catch (err) {
@@ -61,20 +61,21 @@ function Reviews() {
   return (
     <div className="Home">
       <div className="Home-Nav">
-        <div className="Home-Nav-Logo">
-          <h2>AVIS<strong style={{ color: '#aa0f0f' }}>CINE</strong></h2>
-        </div>
-        <ul className="Home-Nav-Links">
-          <li className="Home-Nav-Links-li"><a href="/reviews">Home</a></li>
-          <li className="Home-Nav-Links-li"><a href="/reviews">Films</a></li>
-          <li className="Home-Nav-Links-li"><a href="/about">A propos</a></li>
-          <li className="Home-Nav-Links-li"><a href="/contact">Contact</a></li>
-          <div className="Home-Nav-Links-li Home-Name" style={{ display: 'flex', alignItems: 'center' }}>
-            <li>{lastName[0]}</li>
-            <li>{firstName[0]}</li>
-          </div>
-        </ul>
-      </div>
+
+<div className="Home-Nav-Logo">
+    <h2>AVIS<strong style={{color:'#aa0f0f'}}>CINE</strong></h2>
+</div>
+
+
+<ul className="Home-Nav-Links">
+    <li className="Home-Nav-Links-li"><Link to="/">Home</Link></li>
+    
+    <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
+    <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>
+    <li className="Home-Nav-Links-li"><Link to="/login">Connexion</Link></li>
+</ul> 
+
+</div>
 
       <div className="Home-Search">
         <InputText
