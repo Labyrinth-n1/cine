@@ -25,9 +25,9 @@ function Home()
             <ul className="Home-Nav-Links">
                 <li className="Home-Nav-Links-li"><a href="/">Home</a></li>
                 
-                <li className="Home-Nav-Links-li"><a href="/reviews">Films</a></li>
-                <li className="Home-Nav-Links-li"><a href="/signup">Inscription</a></li>
-                <li className="Home-Nav-Links-li"><a href="/login">Connexion</a></li>
+                <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
+                <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>
+                <li className="Home-Nav-Links-li"><Link to="/login">Connexion</Link></li>
             </ul> 
             
           </div>
