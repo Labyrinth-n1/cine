@@ -1,0 +1,245 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    width: 100%;
+    height: 100vh;
+    position: relative; /* Nécessaire pour positionner le pseudo-élément ou l'overlay */
+
+    /* Ajouter l'image de fond */
+    background-image: url('../assets/images/télécharger\ \(61\).jpeg'); /* Remplacez par votre image */
+    background-size: cover;
+    background-position: center;
+    
+    /* Superposition d'opacité sur l'image */
+    &::before {
+        content: ''; /* Nécessaire pour créer l'élément */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400vh;
+        background-color: rgba(0, 0, 0, 0.9); /* Superposition noire avec opacité de 50% */
+        z-index: 0; /* Assurez-vous que l'overlay soit derrière le contenu */
+    }
+
+    //NavBar
+    &-Nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2rem 5%;
+        position: relative;
+        z-index: 1; /* Assurez-vous que la navigation soit au-dessus de l'overlay */
+    }
+
+    &-Nav-Links {
+        position: relative;
+        bottom: -0px;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        
+    }
+
+    &-Nav-Links-li {
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    &-Nav-Links-li a {
+        text-decoration: none;
+    }
+
+    //SearchBar
+    &-Search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1; /* Assurez-vous que la barre de recherche soit au-dessus de l'overlay */
+    }
+
+    &-Search-Input {
+        width: 50%;
+        padding: 1.2rem;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        border-radius: 10px 0 0 10px;
+
+        &::placeholder {
+            font-family: 'Montserrat';
+        }
+    }
+
+    &-Search-Button {
+        padding: 1.2rem 2rem;
+        height: 50px;
+        position: relative;
+        bottom: -3px;
+        background-color: #aa0f0f;
+        color: #fff;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        cursor: pointer;
+    }
+
+    &-Welcome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        position: relative;
+        z-index: 1; /* Assurez-vous que le texte de bienvenue soit au-dessus de l'overlay */
+
+        &-Title {
+           text-align: center;
+           padding: 2rem;
+        }
+    }
+
+    &-Start {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        position: relative;
+        z-index: 1; /* Assurez-vous que le bouton de démarrage soit au-dessus de l'overlay */
+        
+    }
+
+    &-Start-Button {
+        background-color: #aa0f0f;
+        border: none;
+        color: #FFF;
+        font-family: 'Montserrat';
+        cursor: pointer;
+        margin-top: 2rem;
+
+    }
+
+
+    &-Name
+    {
+        position: relative;
+        top: -20px;
+        color: #FFF;
+        background-color: #aa0f0f;
+        height: 50px;
+        width: 50px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: bolder;
+        //bow shadow pour donner un effet de profondeur
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        
+    }
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colonnes égales
+    gap: 20px; // Espacement entre les cartes
+    padding: 20px;
+    z-index: 1;
+    
+  }
+  
+.carousel .card
+{
+    background-image: url('../assets/images/cbc3038d-1e1f-402f-9502-3da10edd4d9e.jpeg');
+}
+
+.p-rating .p-rating-icon {
+    color: gold !important;
+  }
+  
+
+.container
+{
+    padding: 4rem;
+}
+
+form 
+{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+    height: 400px;
+}
+
+form .circle 
+{
+    position:relative;
+    top: -50px;
+    left: -50px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #aa0f0f;
+}
+
+
+input 
+{
+    border: none;
+    background-color:rgba(39, 47, 61, 1);
+    outline: none;
+    font-family: 'Montserrat';
+    border-radius: 3px;
+    height: 40px;
+    width: 300px;
+    margin-top: 5px;
+    padding: .7rem;
+}
+
+form button
+{
+    background-color: #aa0f0f;
+    font-family: 'Montserrat';
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    height: 40px;
+    width: 300px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.link
+{
+    
+    font-family: 'Montserrat';
+    text-align: right;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.link button 
+{
+    position: relative;
+    background: transparent;
+    border: 1px solid #aa0f0f;
+    top: -10px;
+}
+.link1
+{
+    font-family: 'Montserrat';
+    text-align: right;
+    color: #fff;
+}
