@@ -78,7 +78,7 @@ const AdminDashboard = () => {
         </ul>
       </div>
 
-      <h1 style={{ fontFamily: 'Montserrat', textAlign: 'center' }}>Hey, Admin {firstName}!</h1>
+      <h1 style={{ fontFamily: 'Montserrat', textAlign: 'center' }}>Hey, Admin {firstName} {lastName}!</h1>
       <h2 style={{ textAlign: 'center', fontFamily: 'Montserrat', position: 'relative', bottom: '-50px' }}>Prédiction de sentiment</h2>
 
       <form onSubmit={handleSubmit}>
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
                 trail: { stroke: '#d6d6d6' },
               }}
               strokeWidth={6} // Réduire l'épaisseur de la barre
-              width={100} // Taille du cercle (plus petit ici)
+              
             />
           </div>
 
@@ -128,7 +128,7 @@ const AdminDashboard = () => {
                 trail: { stroke: '#d6d6d6' },
               }}
               strokeWidth={6} // Réduire l'épaisseur de la barre
-              width={100} // Taille du cercle (plus petit ici)
+            
             />
           </div>
         </div>
