@@ -26,7 +26,7 @@ const AddMovie = () => {
         const data = await response.json();
 
         if (response.ok) {
-            setSuccessMessage('Film ajouté avec succès');
+            setSuccessMessage('Film ajouté');
             setError('');
         } else {
             setError(data.message || 'Erreur du serveur');
