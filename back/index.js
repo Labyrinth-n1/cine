@@ -15,16 +15,17 @@ const app = express();
 
 
 const corsOptions = {
-  origin: 'https://cineavis.vercel.app', // Autorise uniquement ton frontend
+  origin: '*',  // 🔥 Autorise TOUTES les origines temporairement (peut être remplacé par ton front)
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Si tu utilises des cookies ou des sessions
+  credentials: true,
 };
 
+app.use(cors(corsOptions));
 app.options('*', cors(corsOptions)); // ✅ Gère les pré-requêtes OPTIONS
 
 
-app.use(cors(corsOptions));
+
 // Middleware pour analyser les corps de requêtes JSON
 app.use(express.json());
 
