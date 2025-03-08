@@ -29,6 +29,16 @@ app.options('*', cors(corsOptions)); // ✅ Gère les pré-requêtes OPTIONS
 // Middleware pour analyser les corps de requêtes JSON
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
+
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB connecté avec succès"))
