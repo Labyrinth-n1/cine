@@ -13,9 +13,16 @@ const Movie = require('./models/movie')  // Importer les routes de commentaires
 dotenv.config();
 const app = express();
 
+const corsOptions = {
+  origin: 'https://cineavis.vercel.app', // Autorise uniquement ton frontend
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Si tu utilises des cookies ou des sessions
+};
+
+app.use(cors(corsOptions));
 // Middleware pour analyser les corps de requêtes JSON
 app.use(express.json());
-app.use(cors());  // ✅ Utilisation de cors
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URL)
