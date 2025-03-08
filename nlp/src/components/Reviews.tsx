@@ -73,6 +73,7 @@ function Reviews() {
     <li className="Home-Nav-Links-li"><Link to="/reviews">Films</Link></li>
     <li className="Home-Nav-Links-li"><Link to="/signup">Inscription</Link></li>
     <li className="Home-Nav-Links-li"><Link to="/login">Connexion</Link></li>
+    <li>{firstName[0]} {lastName[0]}</li>
 </ul> 
 
 </div>
