@@ -1,57 +1,47 @@
-//index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');  // ✅ Importation de cors
-const axios = require('axios')
+const axios = require('axios');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const commentRoutes = require('./routes/comments');
 const movieRoutes = require('./routes/movieRoutes');
-const Movie = require('./models/movie')  // Importer les routes de commentaires
+const Movie = require('./models/movie');
 
 dotenv.config();
 const app = express();
 
-
-const corsOptions = {
-  origin: '*',  // 🔥 Autorise TOUTES les origines temporairement (peut être remplacé par ton front)
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // ✅ Gère les pré-requêtes OPTIONS
-
-
-
-// Middleware pour analyser les corps de requêtes JSON
-app.use(express.json());
-
+// ✅ Middleware CORS personnalisé (corrigé)
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Origin', 'https://cineavis.vercel.app'); // 🔥 Spécifie le domaine du front
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true'); // 🔥 Active les credentials si nécessaires
+
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    return res.sendStatus(200); // ✅ Répond correctement aux pré-requêtes
   }
+
   next();
 });
 
-// Connexion à MongoDB
-mongoose.connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connecté avec succès"))
-  .catch((err) => console.log("Erreur de connexion MongoDB:", err));
+// ✅ Middleware pour analyser les corps de requêtes JSON
+app.use(express.json());
 
-// Utiliser les routes d'inscription et de connexion
+// ✅ Connexion à MongoDB
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("✅ MongoDB connecté avec succès"))
+  .catch((err) => console.log("❌ Erreur de connexion MongoDB:", err));
+
+// ✅ Routes d'authentification
 app.use('/api', registerRoute);
 app.use('/api', loginRoute);
 
-// Utiliser les routes de commentaires
+// ✅ Routes de films et commentaires
 app.use('/api', commentRoutes); 
-app.use('/api', movieRoutes ); // Ici, vous faites le lien avec les routes de commentaires
+app.use('/api', movieRoutes); 
 
+// ✅ Proxy pour l'API d'analyse de sentiments
 app.post('/api/v1/predict', async (req, res) => {
   console.log("📩 Requête reçue sur /api/v1/predict avec body :", req.body);
 
@@ -65,8 +55,7 @@ app.post('/api/v1/predict', async (req, res) => {
       JSON.stringify(req.body),
       { headers: { 'Content-Type': 'application/json' } }
     );
-    
-    // Log de la réponse brute pour mieux comprendre ce qui arrive
+
     console.log("✅ Réponse de l'API externe :", response.status, response.data);
 
     if (response.status !== 200) {
@@ -81,7 +70,6 @@ app.post('/api/v1/predict', async (req, res) => {
   } catch (error) {
     console.error("❌ Erreur de proxy :", error.response?.status, error.response?.statusText, error.response?.data);
 
-    // Log de la réponse détaillée de l'erreur
     if (error.response) {
       console.log("💥 Détails de l'erreur de l'API externe :", error.response.data);
     }
@@ -95,7 +83,7 @@ app.post('/api/v1/predict', async (req, res) => {
   }
 });
 
-// Route pour récupérer les détails d'un film et ses commentaires
+// ✅ Route pour récupérer les détails d'un film et ses commentaires
 app.get('/api/movies/:id', async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id).populate('comments');
@@ -108,7 +96,7 @@ app.get('/api/movies/:id', async (req, res) => {
   }
 });
 
-// Route pour récupérer les commentaires d'un film spécifique
+// ✅ Route pour récupérer les commentaires d'un film spécifique
 app.get('/api/comments/:movieId', async (req, res) => {
   try {
     const comments = await Comment.find({ movieId: req.params.movieId }).populate('userId');
@@ -118,10 +106,8 @@ app.get('/api/comments/:movieId', async (req, res) => {
   }
 });
 
-
-
-// Lancer le serveur
+// ✅ Lancement du serveur
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Serveur lancé sur http://localhost:${port}`);
+  console.log(`🚀 Serveur lancé sur http://localhost:${port}`);
 });
