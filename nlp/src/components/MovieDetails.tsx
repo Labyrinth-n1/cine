@@ -23,7 +23,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`https://cine-dhd3.vercel.app/api/movies/${id}`);
+        const res = await axios.get(`https://cine-2-0tdi.onrender.com/api/movies/${id}`);
         setMovie(res.data);
         setLoading(false);
       } catch (err) {
@@ -34,7 +34,7 @@ const MovieDetail = () => {
 
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/comments/${id}`);
+        const res = await axios.get(`https://cine-2-0tdi.onrender.com/api/comments/${id}`);
         setComments(res.data);
       } catch (err) {
         console.error('Erreur lors de la récupération des commentaires', err);
@@ -49,7 +49,7 @@ const MovieDetail = () => {
     const userId = localStorage.getItem('userId'); // Assurez-vous que l'ID est stocké après la connexion
     if (newComment.trim() && userId) {
       try {
-        const res = await axios.post('http://localhost:5000/api/comments', {
+        const res = await axios.post('https://cine-2-0tdi.onrender.com/api/comments', {
           movieId: id,
           userId: userId,  // Utilisation de l'ID de l'utilisateur
           text: newComment,

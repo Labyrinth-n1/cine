@@ -17,7 +17,7 @@ const AddMovie = () => {
     const movieData = { title, description, stars, date, image };
 
     try {
-        const response = await fetch('https://cine-dhd3.vercel.app/api/addMovie', {
+        const response = await fetch('https://cine-2-0tdi.onrender.com/api/addMovie', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(movieData),

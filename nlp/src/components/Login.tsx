@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://cine-dhd3.vercel.app/api/login', {
+      const response = await fetch('https://cine-2-0tdi.onrender.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
