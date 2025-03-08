@@ -23,7 +23,7 @@ const SignUp = () => {
     if (code) userData.code = code; // Ajouter le code uniquement s'il est rempli
 
     try {
-        const response = await fetch('https://cine-dhd3.vercel.app/api/register', {
+        const response = await fetch('https://cine-2-0tdi.onrender.com/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),

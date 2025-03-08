@@ -40,7 +40,7 @@ function Reviews() {
 
     const fetchMovies = async () => {
       try {
-        const res = await axios.get('https://cine-dhd3.vercel.app/api/movies');
+        const res = await axios.get('https://cine-2-0tdi.onrender.com/api/movies');
         setMovies(res.data);
         setLoading(false);
       } catch (err) {
