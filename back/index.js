@@ -13,7 +13,7 @@ const app = express();
 
 // ✅ Middleware CORS personnalisé (corrigé)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://cineavis.vercel.app'); // 🔥 Spécifie le domaine du front
+  res.header('Access-Control-Allow-Origin', 'https://cine-s4gn.vercel.app/'); // 🔥 Spécifie le domaine du front
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true'); // 🔥 Active les credentials si nécessaires
